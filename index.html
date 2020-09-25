@@ -3,11 +3,318 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <script src="lib/leaflet/leaflet.js"></script>
     <script src="lib/d3.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="lib/robinson.js"></script>
 </head>
 
 <body>
-    <h1> Hi, I am Siyue</h1>
+    <div id="graid">
+        <div class="head">
+
+            <h1>We Love Museum</h1>
+            <p><b>Where do TripAdviser's users go?</b> <br>This visualization is based on the dataset collected by <a href="https://www.kaggle.com/annecool37/museum-data"> annoecool37</a> through <a href="https://www.tripadvisor.com/"> TripAdviser</a>, and
+                reorgnized, analysised in my own way.</p>
+        </div>
+    </div>
+
+    <div class="left" id="CheckBox">
+
+
+
+
+        <!-- <input type="checkbox" id="EU" class="option" autocomplete="off" checked> Europe<br>
+            <input type="checkbox" id="NA" class="option" autocomplete="off" checked> North America<br>
+            <input type="checkbox" id="SA" class="option" autocomplete="off" checked> South America<br>
+            <input type="checkbox" id="AS" class="option" autocomplete="off" checked> Asia<br>
+            <input type="checkbox" id="OC" class="option" autocomplete="off" checked> Oceania<br>
+            <input type="checkbox" id="AF" class="option" autocomplete="off" checked> Africa<br>-->
+
+        <h3>Filter</h3>
+        <input type="checkbox" id="Art" class="option" autocomplete="off" checked> Art
+        <input type="checkbox" id="History" class="option" autocomplete="off" checked> History
+        <input type="checkbox" id="NHistory" class="option" autocomplete="off" checked> Natural History
+        <input type="checkbox" id="Science" class="option" autocomplete="off" checked> Science
+        <input type="checkbox" id="Specialty" class="option" autocomplete="off" checked> Specialty Topic<br>
+        <input type="checkbox" id="Fun" class="option" autocomplete="off" checked> Fun & Games
+        <input type="checkbox" id="Food" class="option" autocomplete="off" checked> Food
+        <input type="checkbox" id="Sport" class="option" autocomplete="off" checked> Sport
+        <input type="checkbox" id="Transportation" class="option" autocomplete="off" checked> Transportation<br>
+        <input type="checkbox" id="Military" class="option" autocomplete="off" checked> Military
+        <input type="checkbox" id="Music" class="option" autocomplete="off" checked> Music
+        <input type="checkbox" id="Adult" class="option" autocomplete="off" checked> Adulte Content
+
+        <p id="I">* Speciality topic museums focuse on specific history event or objects.<br><br>* Adulte Content including sex, drug and other 18+ topics.</p>
+
+        <input type="checkbox" id="Choice" class="option" autocomplete="off" checked> Visiter's top choices<br><br>
+
+        <button id="clear">Clear All</button>
+        <button id="selectAll">Check All</button>
+        <!--
+            <h3>My Data</h3>
+            <input type="checkbox" id="R" autocomplete="off" checked> Where I have been<br>
+            <input type="checkbox" id="C" autocomplete="off" checked> My Future Plan
+-->
+    </div>
+
+    <div class="right">
+        <div id="container">
+            <div id="chart"></div>
+        </div>
+
+    </div>
+    <script src="./script.js"></script>
+
+    </div>
+
+    <div class="foot1">
+        <h3>Some Interesting Facts!</h3>
+
+        <div id="container2">
+
+            <p><b>NO.1:</b> History is the most popular topic on the list.</p>
+            <div id="chart1"></div><br>
+            <p><b>NO.2:</b> Europe is the most popular Continent on the list.</p>
+            <div id="chart2"></div><br>
+            <p><b>NO.3:</b> England is the most popular country in Europe, not Italy, not France.</p>
+            <div id="chart3"></div><br>
+            <p>
+
+                <b>NO.4:</b> Top 5 museums have the most reivew counts.<br>
+
+                <div id="Review">
+                    <b>63,114</b><i> Musee du Louvre </i>(Parise, France) <br><br>
+                    <b>48,438</b><i> The National 9/11 Memorial & Museum </i>(New York, United States) <br><br>
+                    <b>43,037</b><i> Musee d'Orsay</i>(Parise, France) <br><br>
+                    <b>41,295</b><i> British Museum</i>(London, England) <br><br>
+                    <b>36,628</b><i> The Metropolitan Museum of Art</i>(New York, United States) <br><br>
+
+                </div>
+
+            </p>
+
+
+        </div>
+        <script src="./script2.js"></script>
+
+
+    </div>
+<!--
+    <div class="foot2">
+        <h3>How could we choose museum in a SMARTER way? </h3>
+        <div id=fp1>
+            <p id=a>So, how can you really choose a good museum? There are 3 elements: <b>Museum Rating</b>, <b>Museum Rank</b>,and <b>Museum Reviews</b></p>
+
+            <p id=a><b>First</b>, in this dataset, some museums' ranking and rate are overlaped. Let's looking at the data of top 100 museums.
+            </p>
+        </div>
+        <h3>Overall</h3>
+        <img src="img/1.png" width="476" height="294.1">
+        <div id=fp2>
+            <p id=a>From this visualization, We know the following facts:<br><br>
+                <b>No.1:</b>Museums with higher rank are centrated between 4.5 to 5.0.<br><br>
+                <b>No.2:</b>Museums with higher rating has more reviews.<br><br>
+                <b>No.3:</b>Museums with higher review counts are centrated before rank 50.<br><br>
+
+            </p>
+
+            <p><b>Second</b>,Let's looking closer at the relationships between rating, rank and museum review counts： </p>
+        </div>
+        <h3>Reveiw count and rating</h3>
+        <img src="img/2.png" width="476" height="294.1">
+        <div id=fp3>
+            <p id=a>Museums with a rating of 4.5 have more reviews.Museums with a rating of 5 are polarized:some museums have only dozens of reviews. </p>
+        </div>
+        <h3>Reveiw count and rank</h3>
+        <img src="img/3.png" width="476" height="294.1">
+        <div id=fp4>
+            <p id=a>This picture is very interesting. On the one hand, it proves that most museums with extremely high reviews are concentrated in the top five. On the other hand, the ranking of individual museums with high reviews is relatively low, which is
+                related to the total number of museums in the country. </p>
+        </div>
+        <h3>Rank and rating</h3>
+        <img src="img/4.png" width="476" height="294.1">
+        <div id=fp5>
+            <p id=a>Most of the high-ranking museums are focused on a score of 4.5. In the two areas of 4.5 and 5, there is a positive relationship between scoring and ranking. Some museums are evenly distributed in the area with a score of 4, but the number
+                is not large, which is consistent with the picture "Over All". Therefore, in the area with a score of 4, ranking and score are not directly related. The areas 3 and 3.5 do not have regularity.</p>
+        </div>
+
+
+    </div>
+
+
+-->
+
+<div class="foot2">
+    <h3>List of Visitor's Top Choices </h3>
+
+    <p id="list">This list including museum's, continent, country and full name. Museums are carefully selected based on ranking, rate, and review counts.</p><br>
+    <div id=fp1>
+
+
+        <h4>Africa: 1 country, 1 museum</h4>
+        <p id="list">
+            <b>Morocco</b><br>
+           Jardin Majorelle
+        </p><br>
+
+        <h4>Asia: 5 countries, 5 museums</h4>
+        <p id="list">
+            <b>Turkey</b><br>
+           Hagia Sophia Museum / Church (Ayasofya)<br><br>
+           <b>Vietnam</b><br>
+           War Remnants Museum<br><br>
+           <b>Cambodia</b><br>
+           Tuol Sleng Genocide Museum<br><br>
+           <b>China</b><br>
+           The Museum of Qin Terra-cotta Warriors and Horses<br><br>
+           <b>Cambodia</b><br>
+           Tuol Sleng Genocide Museum<br><br>
+           <b>Israel</b><br>
+           Yad Vashem - Holocaust Memorial<br><br>
+        </p><br>
+
+        <h4>Europe: 13 countries, 35 museums</h4>
+        <p id="list">
+            <b>France</b><br>
+            Musee du Louvre<br>
+            Musee d'Orsay<br>
+            Musee de l'Orangerie<br>
+            Musee Rodin<br><br>
+
+
+           <b>England</b><br>
+           British Museum<br>
+           Natural History Museum<br>
+           V&A - Victoria and Albert Museum<br>
+           Churchill War Rooms<br>
+           National Railway Museum<br>
+           National Museum of Scotland<br>
+           Kelvingrove Art Gallery and Museum<br>
+           Museum of Science & Industry<br><br>
+
+           <b>The Netherlands</b><br>
+           Anne Frank House<br>
+           Van Gogh Museum<br>
+           Rijksmuseum<br><br>
+
+
+           <b>Spain</b><br>
+           Prado National Museum<br>
+           Thyssen-Bornemisza Museum (Museo Thyssen-Bornemisza)<br>
+           Queen Sofia Arts Center (Museo Nacional Centro de Arte Reina Sofia)<br>
+           Guggenheim Museum Bilbao<br>
+           City of the Arts and Sciences<br><br>
+
+           <b>Italy</b><br>
+           Accademia Gallery<br>
+           Vatican Museums<br>
+           Uffizi Gallery<br>
+           Egyptian Museum of Turin<br>
+           Borghese Gallery<br>
+           Museo Cappella Sansevero<br>
+           Museo Nazionale del Cinema<br>
+           Castello Sforzesco<br>
+           Peggy Guggenheim Collection<br><br>
+
+           <b>Sweden</b><br>
+           Vasa Museum<br>
+           Skansen Open-Air Museum<br><br>
+
+           <b>Greece</b><br>
+           Acropolis Museum<br><br>
+        
+
+        <b>Germany</b><br>
+        Pergamon Museum<br>
+        Memorial of the Berlin Wall<br>
+        Topography of Terror<br>
+        BMW Museum<br>
+        Museum Island<br>
+        Deutsches Museum<br><br>
+
+        <b>Ireland</b><br>
+        Titanic Belfast<br><br>
+
+        <b>Austria</b><br>
+        Belvedere Palace Museum<br>
+        Imperial Palace (Hofburg)<br>
+        Kunsthistorisches Museum<br><br>
+
+
+        <b>Poland</b><br>
+        Oskar Schindler's Factory<br><br>
+
+        <b>Norway</b><br>
+        The Viking Ship Museum<br><br>
+
+        <b>Russia</b><br>
+        State Hermitage Museum and Winter Palace<br><br>
+
+     </p><br>
+
+     <h4>North America: 2 countries, 22 museums </h4>
+     <p id="list">
+        <b>Unite States</b><br>
+        The National 9/11 Memorial & Museum<br>
+        Smithsonian National Air and Space Museum <br>
+        American Museum of Natural History<br>
+        The Museum of Modern Art (MoMA)<br>
+        Smithsonian National Museum of Natural History<br>
+        Country Music Hall of Fame and Museum<br>
+        Museum of Science and Industry<br>
+        Frick Collection<br>
+        Newseum<br>
+        Titanic Museum Attraction<br>
+        Rock and Roll Hall of Fame and Museum<br>
+        The Sixth Floor Museum/Texas School Book Depository<br>
+        The Field Museum<br>
+        Museum of Fine Arts<br>
+        The Dali Museum<br>
+        The Metropolitan Museum of Art<br>
+        The National WWII Museum<br>
+        Art Institute of Chicago<br>
+        Chihuly Garden and Glass<br>
+        National Gallery of Art<br><br>
+
+        <b>Mexico</b><br>
+        Frida Kahlo Museum<br>
+        National Museum of Anthropology (Museo Nacional de Antropologia)<br>
+
+
+    </p><br>
+   
+    <h4>Oceania: 1 country, 1 museum</h4>
+ <p id="list">
+            <b>New Zealand</b><br>
+            Museum of New Zealand (Te Papa Tongarewa)
+        </p><br>
+
+        <h4>South America: 4 countries, 8 museum</h4>
+        <p id="list">
+            <b>Brazil</b><br>
+            Pinacoteca do Estado de Sao Paulo<br>
+            Museu Oscar Niemeyer<br>
+            Football Museum<br>
+            Museu de Arte de Sao Paulo Assis Chateaubriand - MASP<br>
+            Instituto Ricardo Brennand <br><br>
+    
+    
+            <b>Colombia</b><br>
+            Gold Museum (Museo del Oro)<br><br>
+    
+            <b>Argentina</b><br>
+            Museum of Latin American Art of Buenos Aires<br><br>
+    
+            <b>Peru</b><br>
+            Museo Larco<br><br>
+        </p><br>
+
+    </div>
+
+    </div>
+
+
 </body>
 
 </html>
