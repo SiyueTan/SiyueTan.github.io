@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <script src="lib/leaflet/leaflet.js"></script>
+    <script src="lib/d3.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="lib/robinson.js"></script>
+</head>
+
+<body>
+    <div id="graid">
+
+        <div class="head">
+            <div id="title">
+                <h1>Popular Museums</h1>
+                <p>Data set from TripAdviser</p>
+            </div>
+        </div>
+
+        <div class="left">
+            <h5>By Continent</h5>
+            <input type="checkbox" id="EU" autocomplete="off" checked> Europe
+            <input type="checkbox" id="NA" autocomplete="off" checked> North America
+            <input type="checkbox" id="SA" autocomplete="off" checked> South America
+            <input type="checkbox" id="AS" autocomplete="off" checked> Asia
+            <input type="checkbox" id="OC" autocomplete="off" checked> Oceania
+            <input type="checkbox" id="AF" autocomplete="off" checked> Africa
+            <div id="continent-container"></div>
+        </div>
+
+        <div class="right">
+            Map!
+            <div id="container">
+                <div id="chart"></div>
+            </div>
+
+        </div>
+        <script src="./script.js"></script>
+
+
+
+        <div class="foot1">
+            <h2>Some Interesting Fact</h2>
+            <p>So, how can you choose a good museum, rather than a museum with no real name? The higher the rating and the higher the ranking, the better the museum with more reviews?</p>
+            <div id="container2">
+                <h3>Europe is the most loved Continent</h3>
+                <div id="chart1"></div>
+            </div>
+            <script src="./script2.js"></script>
+
+
+        </div>
+
+        <div class="foot2">
+            other chart
+
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
