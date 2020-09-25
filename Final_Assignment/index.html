@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <script src="lib/d3.js"></script>
+</head>
+
+<body>
+    <div id="header"><b>PAY & MAKE?</b></div>
+
+    <p id="p2">This work is inspired by my own experience in University to discuss the crisis at the tuition of higher education. My dataset is based on
+        <i><a
+        href="https://www.kaggle.com/jessemostipak/college-tuition-diversity-and-pay">Jesse Mostipak </a></i> and reorgnized in my own way, combine with the reports and articles from<i><a
+            href="https://www.cnbc.com/2019/05/23/cengage-how-long-it-takes-college-grads-to-pay-off-student-debt.html"> Abigail Hess </a></i>, <i><a
+                href="https://www.forbes.com/sites/zackfriedman/2020/02/03/student-loan-debt-statistics/#62a181e6281f"> AZack Friedman</a></i>, and<i><a
+                    href="https://www.reuters.com/article/us-usa-immigration-students-economy-expl/explainer-what-1-1-million-foreign-students-contribute-to-the-u-s-economy-idUSKBN2492VS"> Reuters Business News </a></i>(reporting by Heather Timmons and
+        Mimi Dwyer; Editing by Mary Milliken and Aurora Ellis).
+
+    </p>
+
+    <!-- <h2>How to Read</h2>-->
+    <p id="Read">
+        <img src="img/HowToRead.png" width="499" height="191.67" class="center"><br>
+        <!--<b>Dataset</b>: 726 Universities, 450 Private, 326 Public <br>-->
+        <b>* Tuition</b>: including living expend. Price may vary depends on major, campus location, degree level, life style, family background, etc.
+    </p>
+    <div id=button>
+        <button id="average1">Average Tuition</button>
+        <button id="average2">Average Early Career Salary</button>
+        <button id="average25">Average Mid Career Salary</button>
+        <button id="average3">Average Student Loan 2019</button>
+        <button id="average4">Public</button>
+        <button id="average5">Private</button>
+    </div>
+
+    <!--
+        <button id="average">compare with the average</button>
+    
+    <div id="instruction"></div>
+    <script src="./script2.js"></script>
+
+-->
+    <div id="scatterplot"></div>
+    <script src="./script.js"></script>
+
+    <p id="p4">The salary seems to be optimistic. In reality, it will take closer to <b>20 YEARS</b> to pay back the student loan</p>
+
+    <p id="Read">International students in the United States often pay more to attend school than local students, including paying <b>“out-of-state” </b>tuition at publicly-funded state schools and additional charges aimed at oversees entrants. <b>Big schools</b>        that are household names are likely to have a long waiting list of possible enrollees, available to take the place of any international student, said Terry Hartle, senior vice president of government and public affairs for the American Council
+        on Education.</p>
+
+    <div id="left"></div>
+    <div id="right"></div>
+    <script src="./script2.js"></script>
+
+    <p id="p4">Over 100% difference on tuition between in State and out of State students in Public University</p>
+
+    <p id="p3">“it’s no secret that many international students pay full tuition, and that this is a source of revenue that enables schools to offer student aid and other discounts to other students.”<br></p>
+    <p id="name"><b>Terry Hartle</b><br></p>
+
+    <div id="graid">
+        <div class="Student">
+            <img id="student" src="img/Student.png" width="100" height="100" alt="centered image">
+            <h3><b>5.5% </b>of the higher education enrollment</h3>
+
+        </div>
+        <div class="Job">
+            <img id="job" src="img/Job.png" width="100" height="100" alt="centered image">
+            <h3>Support <b>460,000 </b>jobs</h3>
+        </div>
+        <div class="Money">
+            <img id="money" src="img/Money.png" width="100" height="100" alt="centered image">
+            <h3><b>$44.7 </b>billion to the U.S. economy</h3>
+        </div>
+    </div>
+
+    <p id="p2"> Higher education in the United States is facing severe challenges. Under the shadow of covid-19, the relationship between capital and education is gradually being revealed. </p>
+
+    <p id="p4">
+        Does high education as the same as it used to be? This is a question worth to think.
+    </p>
+
+    <!--The average increase of salary is <b>55%</b></p>
+    <p id="p4">In most cases,<br> the more <b>expensive </b>the tuition, <br>the <b>higher</b> the salary </p>-->
+
+
+
+    <!--<script src="./script2.js"></script>-->
+</body>
+
+</html>
